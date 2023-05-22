@@ -2,10 +2,18 @@ import { useState } from "react";
 import "./style.css";
 export default function Card(props) {
   const [val, setVal] = useState(16);
-
+  const [bool, setBool] = useState(false);
   function alertFucntion() {
     alert("Your trail Has been started");
   }
+
+  function changetheValue() {
+    setBool(!bool);
+    console.log(bool);
+    if (!bool) setVal(99);
+    else setVal(16);
+  }
+
   return (
     <main class={`card ${props.theme ? "card3" : ""}`} id="cardi">
       <div class="adjust">
@@ -47,7 +55,7 @@ export default function Card(props) {
         <p class="parastyle">Monthly Billing </p>
 
         <label class="switch">
-          <input type="checkbox"></input>
+          <input type="checkbox" onClick={changetheValue}></input>
           <span class="slider round"></span>
         </label>
 
